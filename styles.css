@@ -1,0 +1,454 @@
+/* Fonts */
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-Black.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-BlackItalic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-ExtraBold.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-ExtraBoldItalic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-Bold.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-BoldItalic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-Medium.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-MediumItalic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-Regular.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-RegularItalic.ttf") format("truetype");
+    font-weight: 200;
+    font-style: italic;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-Light.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: "JuliaMono";
+    src: url("resources/JuliaMono-ttf/JuliaMono-LightItalic.ttf") format("truetype");
+    font-weight: 100;
+    font-style: italic;
+}
+
+/* General */
+html {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    resize: both;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+p {
+    font-family: "JuliaMono";
+    font-weight: 200;
+    user-select: none;
+}
+
+sub {
+    user-select: none;
+}
+
+pre {
+    user-select: none;
+}
+
+h1 { 
+    user-select: none;
+}
+
+input {
+    margin: 0.2vmin;
+
+    font-family: "JuliaMono";
+    font-weight: 100;
+    font-size: 1vmin;
+
+    color: rgb(200, 200, 200);
+    background-color: rgba(95, 104, 126, 0.3);
+    border-style: solid;
+    border-radius: 0.5vmin;
+    border-color: rgba(136, 141, 149, 0.3);
+
+    transition: all 100ms ease-in-out;
+}
+
+input::placeholder {
+    color: rgba(200, 200, 200, 0.5);
+}
+
+input:focus {
+    outline: none;
+    background-color: rgba(124, 134, 144, 0.5);
+    border-color: rgba(168, 175, 187, 0.5);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+select {
+    font-family: "JuliaMono";
+    font-weight: 100;
+    font-size: 1vmin;
+
+    color: rgb(200, 200, 200);
+    background-color: rgba(95, 104, 126, 0.3);
+    border-style: solid;
+    border-radius: 0.5vmin;
+    border-color: rgba(136, 141, 149, 0.3);
+
+    transition: all 100ms ease-in-out;
+    user-select: none;
+}
+
+select:hover {
+    background-color: rgba(124, 134, 144, 0.5);
+    border-color: rgba(168, 175, 187, 0.5);
+}
+
+select:active {
+    outline: none;
+}
+
+option {
+    font-weight: 200;
+    border-color: rgba(136, 141, 149, 1);
+    background-color: rgba(95, 104, 126, 1);
+}
+
+button {
+    margin: 0.2vmin;
+    padding: 0.7vmin;
+
+    font-family: "JuliaMono";
+    font-size: 1vmin;
+    color: rgb(200, 200, 200);
+    background-color: rgba(115, 122, 138, 0.8);
+    border-style: none;
+    border-radius: 0.5vmin;
+
+    user-select: none;
+
+    filter: drop-shadow(0px 0px 5px rgba(33, 33, 36, 0.5));
+
+    transition: all 100ms ease-in-out;
+}
+
+button:hover {
+    background-color: rgba(94, 103, 111, 0.8);
+}
+
+button:active {
+    background-color: rgba(144, 152, 169, 0.8);
+}
+
+.column-div {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.row-div {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.canvas-column {
+    position: relative;
+}
+
+.input-column {
+    width: 30%;
+    min-width: 200px;
+
+    background-color: rgb(81, 81, 86);
+}
+
+.input-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    width: 90%;
+    height: 5vh;
+    margin-top: 1.5vmin;
+    padding-top: 0.75vmin;
+    padding-bottom: 0.75vmin;
+    padding-left: 2.5vmin;
+    padding-right: 2.5vmin;
+
+    /* border-bottom: 2px solid rgb(70, 70, 70); */
+    box-shadow: 0px 0.25vmin 0.5vmin rgba(0, 0, 0, 0.2);
+
+    /* background-color: rgb(100, 100, 100); */
+}
+
+.input-field p {
+    position: relative;
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    flex-grow: 0.5;
+    /* margin-left: 2vmin; */
+
+    font-family: "JuliaMono";
+    font-weight: 300;
+
+    font-size: 1.75vmin;
+
+    color: rgb(200, 200, 200);
+}
+
+.input-field sub {
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* left: 100%; */
+
+    offset: 0px 100px;
+    font-size: 1vmin;
+    color: rgb(200, 200, 200);
+}
+
+.input-field input {
+    flex-grow: 3;
+    margin-left: 1vmin;
+    padding: 0.5vmin;
+    font-size: 1.25vmin;
+
+    /* max-width: 50%; */
+
+    color: rgb(200, 200, 200);
+}
+
+.input-field button {
+    flex-grow: 0.25;
+    margin-left: 1vmin;
+    padding: 0.5vmin;
+    font-size: 1.25vmin;
+
+    color: rgb(200, 200, 200);
+}
+
+.input-scroll {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    justify-content: baseline;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding-top: 0.5vmin;
+    /* background-color: blue; */
+}
+
+.fractal-parameters {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 30%;
+    padding-top: 0.75vmin;
+    padding-bottom: 0.75vmin;
+
+    filter: drop-shadow(0px -2.5px 5px rgba(0, 0, 0, 0.3));
+    background-color: rgb(60, 61, 66);
+}
+
+.fractal-parameters p {
+    font-family: "JuliaMono";
+    font-weight: 200;
+    font-size: 1.25vmin;
+    color: rgb(200, 200, 200);
+}
+
+.parameter-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.parameter-row * {
+    flex-grow: 10;
+    margin-right: 1.5vmin;
+}
+
+.parameter-row p {
+    flex-grow: 1;
+    margin-left: 1.5vmin;
+}
+
+#update-equation {
+    width: 95%;
+    border-width: 0.25vmin;
+
+    font-family: "JuliaMono";
+    font-weight: 400;
+    font-size: 1.5vmin;
+    color: rgb(200, 200, 200);
+}
+
+#add-variable {
+    margin: 2vmin;
+}
+
+.title-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-width: 60px;
+    max-height: 80px;
+    
+    margin: 0;
+    padding: 0;
+    
+    background-color: rgb(60, 61, 66);
+    filter: drop-shadow(0px 0px 10px black);
+}
+
+.title-bar h1 {
+    font-family: "JuliaMono";
+    font-weight: 500;
+
+    color: rgb(220, 220, 220);
+    font-size: 2.5vmin;
+    margin: 5vmin;
+}
+
+.coordinates-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    
+    padding-left: 1.5vmin;
+    padding-right: 1.5vmin;
+    border-top-left-radius: 0.5vmin;
+    
+    box-shadow: 0px 0px 1vmin black;
+    background-color: rgba(81, 81, 86, 0.6);
+}
+
+.coordinates-container p {
+    color: rgba(220, 220, 220, 0.7);
+    font-size: 1vmin;
+    align-self: center;
+}
+
+.coordinates-container input {
+    width: 1.7vw;
+    margin: 0.2vmin;
+
+    color: rgba(220, 220, 220, 0.7);
+    border-radius: 0.2vmin;
+}
+
+.time-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding-left: 1.5vmin;
+    padding-right: 1.5vmin;
+
+    border-bottom-left-radius: 0.5vmin;
+    
+    box-shadow: -0.1vmin 0.1vmin 0.5vmin rgba(0, 0, 0, 0.5);
+    background-color: rgba(81, 81, 86, 0.6);
+}
+
+.time-container pre {
+    color: rgba(220, 220, 220, 0.7);
+    font-size: 1.1vmin;
+    align-self: center;
+}

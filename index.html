@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Complex Fractal Calculator</title>
+    <link rel="icon" type="image/x-icon" href="resources/icon2.png">
+</head>
+<body>
+    <div class="column-div">
+        <div class="title-bar" id="title">
+            <h1>Complex Fractal Calculator</h1>
+        </div>
+        <div class="row-div">
+            <div class="column-div input-column">
+                <div class="input-scroll" id="inputs-container">
+                    <div class="input-field" id="INPUT_z">
+                        <p>z<sub>n+1</sub></p>
+                        <p>=</p>
+                        <input spellcheck="false" type="text" placeholder="Fractal Equation" value="z^2 + c">
+                    </div>
+                    <div class="input-field" id="INPUT_z0">
+                        <p>z<sub>0</sub></p>
+                        <p>=</p>
+                        <input spellcheck="false" type="text" placeholder="Z Initial" value="0">
+                    </div>
+                    <button id="add-variable">Add Variable</button>
+                </div>
+                <div class="column-div fractal-parameters">
+                    <!-- Resolution -->
+                    <div class="row-div parameter-row">
+                        <p>Downscale Factor: </p>
+                        <select name="Factor" id="downscale-factor">
+                            <option value="1">1</option>
+                            <option value="2" selected>1/2</option>
+                            <option value="4">1/4</option>
+                            <option value="8">1/8</option>
+                        </select>
+                    </div>
+                    <!-- Depth -->
+                    <div class="row-div parameter-row">
+                        <p>Iteration Depth: </p>
+                        <input type="number" placeholder="Iteration Depth" value="64" step="1" min="0" max="1024" id="iteration-depth">
+                        <input type="range" value="64" step="1" min="0" max="512" id="iteration-depth-slider">
+                    </div>
+                    <!-- Escape Method -->
+                    <div class="row-div parameter-row">
+                        <p>Escape Method: </p>
+                        <select name="Escape" id="escape-method">
+                            <option value="radius">Radius</option>
+                            <option value="derivative">Derivative</option>
+                        </select>
+                    </div>
+                    <!-- Coloring -->
+                    <div class="row-div parameter-row">
+                        <p>Display Method: </p>
+                        <select name="Display" id="display-method">
+                            <option value="smooth">Smooth</option>
+                            <option value="iterations">Iterations</option>
+                            <option value="coordinates">Coordinates</option>
+                            <option value="smooth-coordinates">Smooth Coordinates</option>
+                            <option value="derivative">Derivative</option>
+                            <option value="rainbow">Rainbow</option>
+                            <option value="blue-brown">Blue-Brown</option>
+                            <option value="heatmap" selected>Heatmap</option>
+                            <option value="sinusodial">Sinusoidal</option>
+                        </select>
+                    </div>
+                    <!-- Update fractal -->
+                    <button id="update-equation">Update Fractal</button>
+                </div>
+            </div>
+
+            <div class="column-div canvas-column">
+                <canvas id="fractal-canvas">HTML Canvases Are Not Supported</canvas>
+
+                <!-- Coords -->
+                <div class="coordinates-container">
+                    <div class="row-div">
+                        <p style="margin-right: 1.5vmin">Zoom: <input id="domain-zoom" type="number" step="0.00001"></p>
+                        <p>Center: <input id="domain-center-a" type="number" step="0.00001">+<input id="domain-center-b" type="number" step="0.00001">i</p>
+                    </div>
+                </div>
+                <!-- Time -->
+                <div class="time-container">
+                    <pre id="timer">Time:          0</pre>
+                </div>
+            </div>
+        </div>
+        <script src="scripts/parser.js"></script>
+        <!-- <script src="scripts/cpurenderer.js"></script> -->
+        <script src="scripts/webglrenderer.js"></script>
+        <script src="scripts/inputs.js"></script>
+    </div>
+</body>
+</html>
