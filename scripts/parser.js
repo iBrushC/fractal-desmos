@@ -302,7 +302,10 @@ const reformatTokenization = (tokens) => {
                 newTokens.pop();
                 newTokens.push({type: "number", value: -1});
                 newTokens.push({type: "arithmetic", value: "mul"});
-            } else if (tokens[i - 1].type == "arithmetic" || tokens[i - 1].value == "left") {
+            } else if (
+                tokens[i - 1].type == "arithmetic" || 
+                tokens[i - 1].type == "comma" ||
+                tokens[i - 1].value == "left" ) {
                 newTokens.pop();
                 newTokens.push({type: "number", value: -1});
                 newTokens.push({type: "arithmetic", value: "mul"});

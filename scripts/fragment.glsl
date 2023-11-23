@@ -92,13 +92,13 @@ vec2 cxMin(vec2 u, vec2 v) {
     float uM = length(u);
     float vM = length(v);
 
-    return uM < vM ? u : v;
+    return u*step(uM, vM) + v*step(vM, uM);
 }
 vec2 cxMax(vec2 u, vec2 v) {
     float uM = length(u);
     float vM = length(v);
 
-    return uM > vM ? u : v;
+    return u*step(vM, uM) + v*step(uM, vM);
 }
 vec2 cxLn(vec2 u) {
     float theta = atan(u.y, u.x);
@@ -157,13 +157,10 @@ void main() {
     for (int i = 0; i < depth; i++) {
         zprev = mv[25];
         
-
         /*SHADERCODE*/
 
         // Iterations and coloring
         iterations = i;
-
-        // divergence += exp(-cxAbs(mv[25]).x - 0.5 / cxAbs(zprev - mv[25]).x);
 
         // Escape
         switch (escape) {

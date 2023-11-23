@@ -48,7 +48,7 @@ let u_display = 7;
 let u_variables = {
     a: {a: 0, b: 0       },   // 
     b: {a: 0, b: 0       },   // 
-    c: {a: 0, b: 0       },   // 
+    c: {a: 0, b: 0       },   //   PROTECTED (coordinates)
     d: {a: 0, b: 0       },   // 
     e: {a: Math.E, b: 0  },   //   PROTECTED (euler's number)
     f: {a: 0, b: 0       },   // 
