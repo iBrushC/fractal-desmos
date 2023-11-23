@@ -120,7 +120,8 @@ h1 {
     user-select: none;
 }
 
-input {
+input[type="number"],
+input[type="text"] {
     margin: 0.2vmin;
 
     font-family: "JuliaMono";
@@ -150,6 +151,13 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input[type="range"] {
+    margin-left:  2.5vmin;
+    margin-right: 2.5vmin;
+    accent-color: rgb(200, 200, 200);
+    outline-width: 0.3vmin;
 }
 
 select {
@@ -206,6 +214,11 @@ button:hover {
 
 button:active {
     background-color: rgba(144, 152, 169, 0.8);
+}
+
+button:disabled {
+    color: rgb(150, 150, 150);
+    background-color: rgba(91, 94, 101, 0.8);
 }
 
 .column-div {
@@ -355,6 +368,11 @@ button:active {
 .parameter-row * {
     flex-grow: 10;
     margin-right: 1.5vmin;
+}
+
+.parameter-row input[type="range"] {
+    flex-grow: 0;
+    width: 30%;
 }
 
 .parameter-row p {

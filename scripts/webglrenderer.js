@@ -22,7 +22,7 @@ const quadUVs = new Float32Array([
 
 const quadIndices = new Uint16Array([
     3, 2, 1,
-    3, 2, 0
+    0, 1, 3
 ]);
 
 const uniforms = {
@@ -183,10 +183,9 @@ const createProgram = async (gl, vertexShaderFile, fragmentShaderFile, variableR
 const drawGL = () => {
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-    gl.clearColor(0.8, 0.8, 1, 1);
+    gl.clearColor(0, 0, 0, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);
     
-    gl.drawArrays(gl.TRIANGLES, 0, 3);
     gl.drawElements(gl.TRIANGLES, quadIndices.length, gl.UNSIGNED_SHORT, 0);
 }
 

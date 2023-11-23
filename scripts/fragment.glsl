@@ -197,4 +197,16 @@ void main() {
         case (7): fragColor = vec4(heatmap(clamp(pow(divergence / (0.5*float(depth)), 0.5), 0.0, 1.0)), 1); break;
         case (8): fragColor = vec4(vec3(sin(4.*divergence)), 1); break;
     }
+
+    // Possible coordinate axis
+    // float xStep = step(abs(coords.x), 0.005*zoom);
+    // xStep += step(abs(mod(coords.x, 1.0)), 0.003*zoom) * step(abs(coords.y), 0.02*zoom);
+    // float yStep = step(abs(coords.y), 0.005*zoom);
+    // yStep += step(abs(mod(coords.y, 1.0)), 0.003*zoom) * step(abs(coords.x), 0.02*zoom);
+
+    // fragColor += vec4(0.5*vec3(xStep), 1.0);
+    // fragColor += vec4(0.5*vec3(yStep), 1.0);
+    // fragColor += vec4(0.2*vec3(step(abs(mod(coords.x, 1.0)), 0.003*zoom)), 1.0);
+    // fragColor += vec4(0.2*vec3(step(abs(mod(coords.y, 1.0)), 0.003*zoom)), 1.0);
+    // fragColor += vec4(vec3(step(0.002*zoom, abs(coords.x) + abs(coords.y));
 }

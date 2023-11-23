@@ -25,6 +25,10 @@ const escapeMethod = document.getElementById("escape-method");
 const displayMethod = document.getElementById("display-method");
 
 let globalRPN = null;
+let variableRPNs = {};
+
+const availableLetters = ['y', 'x', 'w', 'v', 'u'];
+const usedLetters = [];
 
 let DOWNSCALE = 2;
 
@@ -79,11 +83,23 @@ const updateTime = (newTime) => {
 
 // Removes a variable
 const removeFractalVariable = (letter) => {
-    console.log("Removing variable")
+    const element = document.getElementById(`INPUT_${letter}`);
+    inputsContainer.removeChild(element);
+    availableLetters.push(letter);
+
+    const usedIndex = usedLetters.indexOf(letter);
+    usedLetters.splice(usedIndex, 1);
+
+    if (availableLetters.length > 0) {
+        addVariableButton.disabled = false;
+    }
 }
 
 // Creates the new variable for fractals
-const addFractalVariable = (letter) => {
+const addFractalVariable = () => {
+    const letter = availableLetters.pop();
+    usedLetters.push(letter);
+
     const container = document.createElement("div");
     container.className = "input-field";
     container.id = `INPUT_${letter}`;
@@ -101,7 +117,8 @@ const addFractalVariable = (letter) => {
 
     const removeButton = document.createElement("button");
     removeButton.innerHTML = "x";
-    removeButton.onclick = () => { removeFractalVariable(letter); };
+    removeButton.id = `INPUT_REMOVE_${letter}`;
+    removeButton.onclick = () => { removeFractalVariable(letter) };
 
     container.appendChild(labeller);
     container.appendChild(equals);
@@ -109,23 +126,28 @@ const addFractalVariable = (letter) => {
     container.appendChild(removeButton);
     inputsContainer.insertBefore(container, addVariableButton);
 
-    if (inputsContainer.children.length > 7) {
+    if (availableLetters.length == 0) {
         addVariableButton.disabled = true;
     }
 }
 
 // Plots the fractal
 const drawFractal = () => {
-    if (!GL_INITIALIZED) return; 
+    if (!GL_INITIALIZED) return;
     drawGL();
 }
 
 // TODO
 const updateFractalInputs = () => {
     const varInputs = inputsContainer.children;
+    variableRPNs = {};
 
-    for (const varInput of varInputs) {
-        const inputField = varInput.children[2];
+    for (const letter of usedLetters) {
+        const letterElement = document.getElementById(`INPUT_${letter}`);
+        const letterEquation = letterElement.children[2];
+        if (letterEquation.value.length > 0) {
+            variableRPNs[letter] = parseExpression(letterEquation.value, complexOperators);
+        }
     }
 }
 
@@ -146,6 +168,7 @@ const updateFractal = () => {
         // VariableRPNs
         {
             main: globalRPN,
+            ...variableRPNs,
             z: z0RPN,
         }
         // 
@@ -219,7 +242,7 @@ document.onkeydown = (e) => {
 
 // Scroll handler
 canvas.onwheel = (e) => {
-    u_zoom += (e.deltaY / Math.abs(-e.deltaY)) * u_zoom * 0.1;
+    u_zoom += (e.deltaY < 0 ? -1 : 1) * u_zoom * 0.1;
     pushUniforms();
     drawFractal();
 
